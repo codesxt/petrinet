@@ -329,6 +329,7 @@ public class Main extends javax.swing.JFrame {
                 postMatrix[p_id][t_id] = peso;
             }
         }
+        System.out.println("Imprimiendo Matrices:");
         System.out.println("Matriz Pre:");
         for (int fila = 0; fila < n_plazas; fila++){
             for(int col = 0; col < n_transiciones; col++){
@@ -474,7 +475,6 @@ public class Main extends javax.swing.JFrame {
     private void direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionActionPerformed
         // TODO add your handling code here:
         sdireccion = (String) direccion.getSelectedItem();
-        System.out.println(sdireccion);
     }//GEN-LAST:event_direccionActionPerformed
 
     
