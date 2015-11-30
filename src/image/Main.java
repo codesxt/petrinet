@@ -31,6 +31,7 @@ public class Main extends javax.swing.JFrame {
     int plaza = 0;
     int transicion = 0;
     int marcaje = 0;
+    int peso = 0;
     String splaza;
     String strancision;
     String sdireccion = "--->";
@@ -83,6 +84,7 @@ public class Main extends javax.swing.JFrame {
 
         panel.setBackground(new java.awt.Color(254, 254, 254));
         panel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel.setDoubleBuffered(false);
         panel.setPreferredSize(new java.awt.Dimension(800, 600));
         panel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -444,12 +446,11 @@ public class Main extends javax.swing.JFrame {
                 p2y = tran.getY();
             }
         }
-        
-        
-        
+               
         //Se crea el objeto arco
         int dir = 0;
         if(sdireccion.equals("--->")){
+            peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca la marca de la Plaza", "Marca", JOptionPane.QUESTION_MESSAGE) );
             dir = Arco.PLAZA_A_TRANS;
             p1x = p1x + 30;
             p1y = p1y + 55;
@@ -474,6 +475,7 @@ public class Main extends javax.swing.JFrame {
             g.drawLine((int)p1xf,(int)p1yf, p2x, p2y);
             g.drawLine((int)p2xf, (int)p2yf, p2x, p2y);
         }else if(sdireccion.equals("<---")){
+            peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
             dir = Arco.TRANS_A_PLAZA;
             p1x = p1x + 40;
             p1y = p1y + 55;
@@ -498,7 +500,7 @@ public class Main extends javax.swing.JFrame {
             g.drawLine((int)p1xf,(int)p1yf, p1x, p1y);
             g.drawLine((int)p2xf, (int)p2yf, p1x, p1y);
         }
-        createArco(splaza, strancision, dir, 1);
+        createArco(splaza, strancision, dir, peso);
     }//GEN-LAST:event_btn_crearArcoActionPerformed
 
     private void direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionActionPerformed
