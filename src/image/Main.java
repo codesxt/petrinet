@@ -86,9 +86,6 @@ public class Main extends javax.swing.JFrame {
         panel.setDoubleBuffered(false);
         panel.setPreferredSize(new java.awt.Dimension(800, 600));
         panel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelMousePressed(evt);
-            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelMouseClicked(evt);
             }
@@ -248,11 +245,11 @@ public class Main extends javax.swing.JFrame {
         label.setSize(label.getPreferredSize());
         label.setOpaque(false);
         label.setLocation(x, y);
-        label.addMouseListener(myMouseAdapter);
-        label.addMouseMotionListener(myMouseAdapter);
+        
+        //label.addMouseListener(myMouseAdapter);
+        //label.addMouseMotionListener(myMouseAdapter);
         labelPlaza.add(label);
         panel.add(label);
-        
         //Actualizar lista de plazas en el comboBox
         plazas_CB.removeAllItems();
         Iterator<JLabel> itrT = labelPlaza.iterator();
@@ -280,11 +277,11 @@ public class Main extends javax.swing.JFrame {
         label.setSize(label.getPreferredSize());
         label.setOpaque(false);
         label.setLocation(x, y);
-        label.addMouseListener(myMouseAdapter);
-        label.addMouseMotionListener(myMouseAdapter);
+       //label.addMouseListener(myMouseAdapter);
+        //label.addMouseMotionListener(myMouseAdapter);
+       
         labelTran.add(label);
         panel.add(label);
-        
         //Actualiza la lista de transiciones
         transicion_CB.removeAllItems();
         Iterator<JLabel> itrT = labelTran.iterator();
@@ -305,6 +302,10 @@ public class Main extends javax.swing.JFrame {
         //System.out.println("Añadido arco con:" + plaza + transicion + direccion + peso);
         arcos.add(arco);
         updateMatrices();
+    }
+    
+    public void updateArcos(){
+        
     }
     
     public void updateMatrices(){
@@ -375,7 +376,7 @@ public class Main extends javax.swing.JFrame {
             }
 	return result;
     }
-    
+    //funcion que encuentra el siguiente marcaje
     public int[] sigMarcaje(int M0[], int B[]){
         int result[] = new int[plazas.size()];
         for (int i = 0; i < plazas.size(); i++) {
@@ -405,13 +406,11 @@ public class Main extends javax.swing.JFrame {
                 Iterator<JLabel> itre = labelPlaza.iterator();
                 while(itre.hasNext()){
                         JLabel pla = itre.next();
-                        //System.out.println(pla.getText() + " " + pla.getX());
                 }
                 
                 Iterator<Plaza> itr = plazas.iterator();
                 while(itr.hasNext()){
                         Plaza pla = itr.next();
-                        //System.out.println(pla.getNombrePlaza() + " " + pla.getMarca() + "-" + pla.getX() + " " + pla.getY());
                 }
                 break;
             case 2:
@@ -422,15 +421,7 @@ public class Main extends javax.swing.JFrame {
                 Iterator<Transicion> itrT = transiciones.iterator();
                 while(itrT.hasNext()){
                         Transicion tra = itrT.next();
-                        
-                        //System.out.println(tra.getNombreTransicion() + " "+ tra.getX() + "-" + tra.getY());
                 }
-                break;
-            case 3:
-                
-                Graphics g = panel.getGraphics();
-                g.drawLine(p1x, p1y, p2x, p2y);
-                
                 break;
             default:
                 break;
@@ -442,11 +433,6 @@ public class Main extends javax.swing.JFrame {
         aux = 2;
         btn_transicion.setSelected(false);
     }//GEN-LAST:event_btn_transicionActionPerformed
-
-    private void panelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMousePressed
-        Graphics g = this.getGraphics();
-        
-    }//GEN-LAST:event_panelMousePressed
 
     private void plazas_CBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plazas_CBActionPerformed
         //Selecciona plaza de la lista y la guarda en splaza
@@ -465,6 +451,8 @@ public class Main extends javax.swing.JFrame {
         int p1xf, p1yf, p2xf, p2yf;
         double angSep=25.0, ang=0.0;
         double ty, tx;
+        double pmX;
+        double pmY;
         Iterator<JLabel> itrT = labelPlaza.iterator();
         Iterator<JLabel> itrTR = labelTran.iterator();
         while(itrT.hasNext()){
@@ -481,7 +469,8 @@ public class Main extends javax.swing.JFrame {
                 p2y = tran.getY();
             }
         }
-               
+        pmX = (p1x + p2x)/2;
+        pmY = (p1y + p2y)/2;
         //Se crea el objeto arco
         int dir = 0;
         if(sdireccion.equals("--->")){
@@ -505,17 +494,18 @@ public class Main extends javax.swing.JFrame {
 
             Graphics g = panel.getGraphics();
             g.setColor(Color.red);
-
             g.drawLine(p1x, p1y, p2x, p2y);
             g.drawLine((int)p1xf,(int)p1yf, p2x, p2y);
             g.drawLine((int)p2xf, (int)p2yf, p2x, p2y);
+            g.drawString(Integer.toString(peso) , (int)pmX + 15, (int)pmY + 15);
         }else if(sdireccion.equals("<---")){
-            peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+            peso = Integer.parseInt( 
+                    JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
             dir = Arco.TRANS_A_PLAZA;
             p1x = p1x + 40;
             p1y = p1y + 55;
-            p2x = p2x + 30;
-            p2y = p2y + 40;
+            p2x = p2x + 25;
+            p2y = p2y + 25;
             ty=-(p2y-p1y)*1.0;
             tx=(p2x-p1x)*1.0;
             ang=Math.atan (ty/tx);
@@ -530,10 +520,10 @@ public class Main extends javax.swing.JFrame {
 
             Graphics g = panel.getGraphics();
             g.setColor(Color.blue);
-
             g.drawLine(p1x, p1y, p2x, p2y);
             g.drawLine((int)p1xf,(int)p1yf, p1x, p1y);
             g.drawLine((int)p2xf, (int)p2yf, p1x, p1y);
+            g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY);
         }
         createArco(splaza, strancision, dir, peso);
     }//GEN-LAST:event_btn_crearArcoActionPerformed
