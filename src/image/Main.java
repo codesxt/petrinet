@@ -1,7 +1,6 @@
 
 package image;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -348,6 +347,42 @@ public class Main extends javax.swing.JFrame {
             System.out.print("\n");
         }
     }
+    //función que busca la matriz C (matriz post - matriz pre) ... 
+    //hay que ver las excepciones de tal forma que la resta se pueda hacer
+    public int[][] matrizC(int post[][], int pre[][]){
+        int C[][] = new int[plazas.size()][transiciones.size()];
+        for (int i = 0; i < plazas.size(); i++) {
+            for (int j = 0; j < transiciones.size(); j++) {
+                C[i][j] = post[i][j] - pre[i][j];
+            }
+        }
+        return C;
+    }
+    
+    //funcion para sacar el producto entre la matriz C con el vector caracteristico
+    //hay que ver las excepciones de tal forma que la resta se pueda hacer
+    public int[] producto(int A[][], int B[]){
+	int suma = 0;
+	int result[] = new int[plazas.size()];
+            for(int i = 0; i < plazas.size(); i++){
+                for(int j = 0; j < B.length; j++){
+                    suma = 0;
+                    for(int k = 0; k < B.length; k++){
+                        suma += A[i][k] * B[k];
+                    }
+                    result[i] = suma;
+		}
+            }
+	return result;
+    }
+    
+    public int[] sigMarcaje(int M0[], int B[]){
+        int result[] = new int[plazas.size()];
+        for (int i = 0; i < plazas.size(); i++) {
+            result[i] = M0[i] + B[i];
+        }
+        return result;
+    }
     
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         
@@ -450,7 +485,7 @@ public class Main extends javax.swing.JFrame {
         //Se crea el objeto arco
         int dir = 0;
         if(sdireccion.equals("--->")){
-            peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca la marca de la Plaza", "Marca", JOptionPane.QUESTION_MESSAGE) );
+            peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
             dir = Arco.PLAZA_A_TRANS;
             p1x = p1x + 30;
             p1y = p1y + 55;
