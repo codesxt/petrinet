@@ -241,7 +241,8 @@ public class Main extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon("circulo.png");
         Icon icono = new ImageIcon(icon.getImage().getScaledInstance(imageWidth,imageHeight , Image.SCALE_DEFAULT));
         int eb = 0;
-        Border insideBorder = new EmptyBorder(eb, eb, eb, eb);          
+        Border insideBorder = new EmptyBorder(eb, eb, eb, eb); 
+        
         label.setIcon(icono); 
         label.setSize(label.getPreferredSize());
         label.setOpaque(false);
@@ -421,53 +422,81 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_transicion_CBActionPerformed
 
     private void btn_crearArcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearArcoActionPerformed
-        Iterator<JLabel> itrT = labelPlaza.iterator();
-        Iterator<JLabel> itrTR = labelTran.iterator();
-        while(itrT.hasNext()){
-            JLabel tra = itrT.next();
-            if (tra.getText().equals(splaza)) {
-               p1x = tra.getX() + 35;
-               p1y = tra.getY() + 40;
-            }
-        }
-        while(itrTR.hasNext()){
-            JLabel tran = itrTR.next();
-            if (tran.getText().equals(strancision)) {
-                p2x = tran.getX() + 15;
-                p2y = tran.getY() + 30;
-            }
-        }
         //largo de la flecha
         int dist=15;
         //puntos para la flecha
         int p1xf, p1yf, p2xf, p2yf;
         double angSep=25.0, ang=0.0;
         double ty, tx;
-        ty=-(p1y-p2y)*1.0;
-        tx=(p1x-p2x)*1.0;
-        ang=Math.atan (ty/tx);
-        if(tx<0)
-        {// si tx es negativo aumentar 180 grados
-           ang +=Math.PI;
+        Iterator<JLabel> itrT = labelPlaza.iterator();
+        Iterator<JLabel> itrTR = labelTran.iterator();
+        while(itrT.hasNext()){
+            JLabel tra = itrT.next();
+            if (tra.getText().equals(splaza)) {
+               p1x = tra.getX();
+               p1y = tra.getY();
+            }
         }
-        p1xf=(int)(p2x+dist*Math.cos (ang-Math.toRadians (angSep)));
-        p1yf=(int)(p2y-dist*Math.sin (ang-Math.toRadians (angSep)));
-        p2xf=(int)(p2x+dist*Math.cos (ang+Math.toRadians (angSep)));
-        p2yf=(int)(p2y-dist*Math.sin (ang+Math.toRadians (angSep)));
-                
-        Graphics g = panel.getGraphics();
-        g.setColor(Color.red);
-       
-        g.drawLine(p1x, p1y, p2x, p2y);
-        g.drawLine((int)p1xf,(int)p1yf, p2x, p2y);
-        g.drawLine((int)p2xf, (int)p2yf, p2x, p2y);
+        while(itrTR.hasNext()){
+            JLabel tran = itrTR.next();
+            if (tran.getText().equals(strancision)) {
+                p2x = tran.getX();
+                p2y = tran.getY();
+            }
+        }
+        
+        
         
         //Se crea el objeto arco
         int dir = 0;
         if(sdireccion.equals("--->")){
             dir = Arco.PLAZA_A_TRANS;
+            p1x = p1x + 30;
+            p1y = p1y + 55;
+            p2x = p2x + 10;
+            p2y = p2y + 20;
+            ty=-(p1y-p2y)*1.0;
+            tx=(p1x-p2x)*1.0;
+            ang=Math.atan (ty/tx);
+            if(tx<0)
+            {// si tx es negativo aumentar 180 grados
+               ang +=Math.PI;
+            }
+            p1xf=(int)(p2x+dist*Math.cos (ang-Math.toRadians (angSep)));
+            p1yf=(int)(p2y-dist*Math.sin (ang-Math.toRadians (angSep)));
+            p2xf=(int)(p2x+dist*Math.cos (ang+Math.toRadians (angSep)));
+            p2yf=(int)(p2y-dist*Math.sin (ang+Math.toRadians (angSep)));
+
+            Graphics g = panel.getGraphics();
+            g.setColor(Color.red);
+
+            g.drawLine(p1x, p1y, p2x, p2y);
+            g.drawLine((int)p1xf,(int)p1yf, p2x, p2y);
+            g.drawLine((int)p2xf, (int)p2yf, p2x, p2y);
         }else if(sdireccion.equals("<---")){
             dir = Arco.TRANS_A_PLAZA;
+            p1x = p1x + 40;
+            p1y = p1y + 55;
+            p2x = p2x + 30;
+            p2y = p2y + 40;
+            ty=-(p2y-p1y)*1.0;
+            tx=(p2x-p1x)*1.0;
+            ang=Math.atan (ty/tx);
+            if(tx<0)
+            {// si tx es negativo aumentar 180 grados
+               ang +=Math.PI;
+            }
+            p1xf=(int)(p1x+dist*Math.cos (ang-Math.toRadians (angSep)));
+            p1yf=(int)(p1y-dist*Math.sin (ang-Math.toRadians (angSep)));
+            p2xf=(int)(p1x+dist*Math.cos (ang+Math.toRadians (angSep)));
+            p2yf=(int)(p1y-dist*Math.sin (ang+Math.toRadians (angSep)));
+
+            Graphics g = panel.getGraphics();
+            g.setColor(Color.blue);
+
+            g.drawLine(p1x, p1y, p2x, p2y);
+            g.drawLine((int)p1xf,(int)p1yf, p1x, p1y);
+            g.drawLine((int)p2xf, (int)p2yf, p1x, p1y);
         }
         createArco(splaza, strancision, dir, 1);
     }//GEN-LAST:event_btn_crearArcoActionPerformed
