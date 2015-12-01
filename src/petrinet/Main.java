@@ -4,6 +4,7 @@ package petrinet;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
@@ -37,7 +38,7 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Arco> arcos = new ArrayList<>();
     ArrayList<JLabel> labelPlaza = new ArrayList<>();
     ArrayList<JLabel> labelTran = new ArrayList<>();
-    
+     
     
     int p1x;
     int p1y;
@@ -416,10 +417,15 @@ public class Main extends javax.swing.JFrame {
     
     public void createPlaza(int x, int y, int plaza) {
         int imageWidth = 55, imageHeight = 55, marca = 0;
-        //panel.setLayout(null);
-        //MyMouseAdapter myMouseAdapter = new MyMouseAdapter();
+        
         Plaza objPLaza = new Plaza();
-        marca = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca la marca de la Plaza", "Marca", JOptionPane.QUESTION_MESSAGE) );
+        try{
+            marca = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca la marca de la Plaza", "Marca", JOptionPane.QUESTION_MESSAGE) );
+        }catch(HeadlessException | NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"La marca debe ser un numero entero positivo");
+            marca = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca la marca de la Plaza", "Marca", JOptionPane.QUESTION_MESSAGE) );
+        }
+        
         objPLaza.setMarca(marca);
         objPLaza.setNombrePlaza("P" + (plaza + 1));
         objPLaza.setX(x);
@@ -428,15 +434,14 @@ public class Main extends javax.swing.JFrame {
         JLabel label = new JLabel("P" + (plaza + 1));
         ImageIcon icon = new ImageIcon("circulo.png");
         Icon icono = new ImageIcon(icon.getImage().getScaledInstance(imageWidth,imageHeight , Image.SCALE_DEFAULT));
-        //int eb = 0;
-        //Border insideBorder = new EmptyBorder(eb, eb, eb, eb); 
         
         label.setIcon(icono); 
         label.setSize(label.getPreferredSize());
         label.setOpaque(false);
         label.setLocation(x, y);
-        //label.adwdMouseListener(myMouseAdapter);
-        //label.addMouseMotionListener(myMouseAdapter);
+        //label.setPreferredSize(null);
+        //label.setFont(new java.awt.Font("Tahoma", 0, 36));
+        
         labelPlaza.add(label);
         panel.add(label);
         //Actualizar lista de plazas en el comboBox
@@ -452,8 +457,6 @@ public class Main extends javax.swing.JFrame {
     
     public void createTransicion(int x, int y, int transicion) {
         int imageWidth = 55, imageHeight = 55;
-        //panel.setLayout(null);
-        //MyMouseAdapter myMouseAdapter = new MyMouseAdapter();
         JLabel label = new JLabel("T" + (transicion + 1));
         Transicion obj_Transicion = new Transicion();
         obj_Transicion.setNombreTransicion("T" + (transicion + 1));
@@ -481,11 +484,6 @@ public class Main extends javax.swing.JFrame {
             JLabel tra = itrT.next();
             transicion_CB.addItem(tra.getText());
         }
-        
-        //updateArcos();
-        //redibujarArcos();
-        //panel.repaint();
-        
     }
     
     public void createArco(String plaza, String transicion, int direccion, int peso, int px1, int py1, int px2, int py2){
@@ -773,12 +771,23 @@ public class Main extends javax.swing.JFrame {
                     }
                 }
                 if (dibuja  == 1 ) {
-                    peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                    try{
+                        peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                    }catch(HeadlessException | NumberFormatException e){
+                        JOptionPane.showMessageDialog(null,"La Peso debe ser un numero entero positivo");
+                        peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                    }
+                    
                     dibujaArco(p1x, p1y, p2x, p2y, 0 , peso);
                     createArco(splaza, stransicion, 0, peso, p1x, p1y, p2x, p2y);
                 }
             }else{
-                peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                try{
+                    peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                }catch(HeadlessException | NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"La Peso debe ser un numero entero positivo");
+                    peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                }
                 dibujaArco(p1x, p1y, p2x, p2y, 0, peso );
                 createArco(splaza, stransicion, 0, peso, p1x, p1y, p2x, p2y);
             }
@@ -800,12 +809,22 @@ public class Main extends javax.swing.JFrame {
                     }
                 }
                 if (dibuja  == 1 ) {
-                    peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                    try{
+                        peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                    }catch(HeadlessException | NumberFormatException e){
+                        JOptionPane.showMessageDialog(null,"La Peso debe ser un numero entero positivo");
+                        peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                    }
                     dibujaArco(p1x, p1y, p2x, p2y, 1, peso );
                     createArco(splaza, stransicion, 1, peso, p1x, p1y, p2x, p2y);
                 }
             }else{
-                peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                try{
+                    peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                }catch(HeadlessException | NumberFormatException e){
+                    JOptionPane.showMessageDialog(null,"La Peso debe ser un numero entero positivo");
+                    peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                }
                 dibujaArco(p1x, p1y, p2x, p2y, 1, peso );
                 createArco(splaza, stransicion, 1, peso, p1x, p1y, p2x, p2y);
             }
