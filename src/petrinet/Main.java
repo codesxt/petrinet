@@ -72,6 +72,7 @@ public class Main extends javax.swing.JFrame {
         transicion_CB = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         btn_crearArco = new javax.swing.JButton();
+        redibujar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         btn_plaza = new javax.swing.JToggleButton();
         btn_transicion = new javax.swing.JButton();
@@ -239,10 +240,19 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         jLabel3.setText("Transiciones");
 
+        btn_crearArco.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         btn_crearArco.setText("Agregar Arco");
         btn_crearArco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_crearArcoActionPerformed(evt);
+            }
+        });
+
+        redibujar.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
+        redibujar.setText("Redibujar");
+        redibujar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                redibujarActionPerformed(evt);
             }
         });
 
@@ -269,15 +279,16 @@ public class Main extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(transicion_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(4, 4, 4)
-                .addComponent(btn_crearArco, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addComponent(btn_crearArco, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(redibujar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_crearArco, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -288,12 +299,15 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(plazas_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(direccion)
-                            .addComponent(transicion_CB))))
+                            .addComponent(transicion_CB)))
+                    .addComponent(redibujar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_crearArco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(24, 24, 24))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        btn_plaza.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         btn_plaza.setText("Plaza");
         btn_plaza.setBorder(null);
         btn_plaza.addActionListener(new java.awt.event.ActionListener() {
@@ -302,6 +316,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        btn_transicion.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         btn_transicion.setText("Transición");
         btn_transicion.setBorder(null);
         btn_transicion.addActionListener(new java.awt.event.ActionListener() {
@@ -345,16 +360,16 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 5, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
+                        .addGap(39, 39, 39)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -575,7 +590,7 @@ public class Main extends javax.swing.JFrame {
             dibujaArco(a.getPx(), a.getPy(), a.getTx(), a.getTy(), a.getDireccion(), a.getPeso());
         }
     }
-    
+            
 //función que busca la matriz C (matriz post - matriz pre) ... 
     //hay que ver las excepciones de tal forma que la resta se pueda hacer
     public int[][] matrizC(int post[][], int pre[][]){
@@ -817,9 +832,9 @@ public class Main extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_boton_disparoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void redibujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redibujarActionPerformed
         redibujarArcos();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_redibujarActionPerformed
 
     
     public static void main(String args[]) {
@@ -876,6 +891,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel label_marcaje;
     private javax.swing.JPanel panel;
     private javax.swing.JComboBox<String> plazas_CB;
+    private javax.swing.JButton redibujar;
     private javax.swing.JComboBox<String> trans_sensibilizadas;
     private javax.swing.JComboBox<String> transicion_CB;
     // End of variables declaration//GEN-END:variables
