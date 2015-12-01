@@ -434,6 +434,7 @@ public class Main extends javax.swing.JFrame {
         }
         updateMarcaje();
         //updateArcos();
+        redibujarArcos();
     }
     
     public void createTransicion(int x, int y, int transicion) {
@@ -469,6 +470,8 @@ public class Main extends javax.swing.JFrame {
         }
         
         //updateArcos();
+        panel.repaint();
+        redibujarArcos();
     }
     
     public void createArco(String plaza, String transicion, int direccion, int peso, int px1, int py1, int px2, int py2){
@@ -533,6 +536,14 @@ public class Main extends javax.swing.JFrame {
                 System.out.print(postMatrix[fila][col]);
             }
             System.out.print("\n");
+        }
+    }
+    
+    
+    public void redibujarArcos(){
+        for(int i=0; i<arcos.size(); i++){
+            Arco a = arcos.get(i);
+            dibujaArco(a.getPx(), a.getPy(), a.getTx(), a.getTy(), a.getDireccion());
         }
     }
     
@@ -751,9 +762,6 @@ public class Main extends javax.swing.JFrame {
             dibujaArco(p1x, p1y, p2x, p2y, 1);
             createArco(splaza, stransicion, 1, peso,p1x, p1y, p2x, p2y);
         }
-        
-        
-        
     }//GEN-LAST:event_btn_crearArcoActionPerformed
 
     private void direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionActionPerformed
