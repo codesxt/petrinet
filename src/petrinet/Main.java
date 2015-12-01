@@ -434,7 +434,7 @@ public class Main extends javax.swing.JFrame {
         }
         updateMarcaje();
         //updateArcos();
-        redibujarArcos();
+        //redibujarArcos();
     }
     
     public void createTransicion(int x, int y, int transicion) {
@@ -471,7 +471,7 @@ public class Main extends javax.swing.JFrame {
         
         //updateArcos();
         panel.repaint();
-        redibujarArcos();
+        //redibujarArcos();
     }
     
     public void createArco(String plaza, String transicion, int direccion, int peso, int px1, int py1, int px2, int py2){
@@ -659,32 +659,13 @@ public class Main extends javax.swing.JFrame {
             p2xf=(int)(tx+dist*Math.cos (ang+Math.toRadians (angSep)));
             p2yf=(int)(ty-dist*Math.sin (ang+Math.toRadians (angSep)));
             
+            //peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+            g.setColor(Color.red);
+            g.drawLine(px, py, tx, ty);
+            g.drawLine((int)p1xf,(int)p1yf, tx, ty);
+            g.drawLine((int)p2xf, (int)p2yf, tx, ty);
+            g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY);
             
-            if (arcos.size() >= 1) {
-                System.out.println(arcos.size());
-                for (int i = 0; i < arcos.size(); i++) {
-                    if (arcos.get(i).getPlaza().equals(splaza) && arcos.get(i).getTransicion().equals(stransicion) && arcos.get(i).getDireccion() == 0) {
-                        //envia el mensaje
-                        JOptionPane.showMessageDialog(null,"El arco ya Existe"); 
-                        dibuja = 0;
-                    }
-                }
-                if (dibuja == 1) {
-                    peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
-                    g.setColor(Color.red);
-                    g.drawLine(px, py, tx, ty);
-                    g.drawLine((int)p1xf,(int)p1yf, tx, ty);
-                    g.drawLine((int)p2xf, (int)p2yf, tx, ty);
-                    g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY);
-                }
-            }else{
-                peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
-                g.setColor(Color.red);
-                g.drawLine(px, py, tx, ty);
-                g.drawLine((int)p1xf,(int)p1yf, tx, ty);
-                g.drawLine((int)p2xf, (int)p2yf, tx, ty);
-                g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY);
-            }
         }else if(dir == 1){
             
             tyd=-(ty-py)*1.0;
@@ -698,38 +679,22 @@ public class Main extends javax.swing.JFrame {
             p1yf=(int)(py-dist*Math.sin (ang-Math.toRadians (angSep)));
             p2xf=(int)(px+dist*Math.cos (ang+Math.toRadians (angSep)));
             p2yf=(int)(py-dist*Math.sin (ang+Math.toRadians (angSep)));
-
             
-            if (arcos.size() >= 1) {
-                System.out.println(arcos.size());
-                for (int i = 0; i < arcos.size(); i++) {
-                    //si la plaza y la transicion existen y ademas existe en esa direccion ... 
-                    if (arcos.get(i).getPlaza().equals(splaza) && arcos.get(i).getTransicion().equals(stransicion) && arcos.get(i).getDireccion() == 1) {
-                        //envia el mensaje
-                        JOptionPane.showMessageDialog(null,"El arco ya Existe"); 
-                        dibuja = 0;
-                    }
-                }
-                if (dibuja == 1) {
-                    peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
-                    g.setColor(Color.blue);
-                    g.drawLine(px, py, tx, ty);
-                    g.drawLine((int)p1xf,(int)p1yf, px, py);
-                    g.drawLine((int)p2xf, (int)p2yf, px, py);
-                    g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY);
-                }
-            }else{
-                peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
-                g.setColor(Color.blue);
-                g.drawLine(px, py, tx, ty);
-                g.drawLine((int)p1xf,(int)p1yf, px, py);
-                g.drawLine((int)p2xf, (int)p2yf, px, py);
-                g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY);
-            }
+            
+            g.setColor(Color.blue);
+            g.drawLine(px, py, tx, ty);
+            g.drawLine((int)p1xf,(int)p1yf, px, py);
+            g.drawLine((int)p2xf, (int)p2yf, px, py);
+            g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY);
+            
+            
         } 
     }
     
+    
+    
     private void btn_crearArcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearArcoActionPerformed
+        int dibuja = 1;
         Iterator<JLabel> itrT = labelPlaza.iterator();
         Iterator<JLabel> itrTR = labelTran.iterator();
         while(itrT.hasNext()){
@@ -747,21 +712,61 @@ public class Main extends javax.swing.JFrame {
             }
         }
         
+        
         if (direccion.getSelectedItem().equals("--->")) {
             p1x = p1x + 30;
             p1y = p1y + 55;
             p2x = p2x + 10;
             p2y = p2y + 20;
-            dibujaArco(p1x, p1y, p2x, p2y, 0 );
-            createArco(splaza, stransicion, 0, peso, p1x, p1y, p2x, p2y);
+            
+            if (arcos.size()>=1) {
+                for (int i = 0; i < arcos.size(); i++) {
+                    //si la plaza y la transicion existen y ademas existe en esa direccion ... 
+                    if (arcos.get(i).getPlaza().equals(splaza) && arcos.get(i).getTransicion().equals(stransicion) && arcos.get(i).getDireccion() == 0) {
+                        //envia el mensaje
+                        JOptionPane.showMessageDialog(null,"El arco ya Existe"); 
+                        dibuja = 0;
+                    }
+                }
+                if (dibuja  == 1 ) {
+                    peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                    dibujaArco(p1x, p1y, p2x, p2y, 0 );
+                    createArco(splaza, stransicion, 0, peso, p1x, p1y, p2x, p2y);
+                }
+            }else{
+                peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                dibujaArco(p1x, p1y, p2x, p2y, 0 );
+                createArco(splaza, stransicion, 0, peso, p1x, p1y, p2x, p2y);
+            }
+            
+            
         }else if(direccion.getSelectedItem().equals("<---")){
             p1x = p1x + 40;
             p1y = p1y + 55;
             p2x = p2x + 25;
             p2y = p2y + 25;
-            dibujaArco(p1x, p1y, p2x, p2y, 1);
-            createArco(splaza, stransicion, 1, peso,p1x, p1y, p2x, p2y);
-        }
+            
+            if (arcos.size()>=1) {
+                for (int i = 0; i < arcos.size(); i++) {
+                    //si la plaza y la transicion existen y ademas existe en esa direccion ... 
+                    if (arcos.get(i).getPlaza().equals(splaza) && arcos.get(i).getTransicion().equals(stransicion) && arcos.get(i).getDireccion() == 1) {
+                        //envia el mensaje
+                        JOptionPane.showMessageDialog(null,"El arco ya Existe"); 
+                        dibuja = 0;
+                    }
+                }
+                if (dibuja  == 1 ) {
+                    peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                    dibujaArco(p1x, p1y, p2x, p2y, 1 );
+                    createArco(splaza, stransicion, 1, peso, p1x, p1y, p2x, p2y);
+                }
+            }else{
+                peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
+                dibujaArco(p1x, p1y, p2x, p2y, 1 );
+                createArco(splaza, stransicion, 1, peso, p1x, p1y, p2x, p2y);
+            }
+        }      
+        
     }//GEN-LAST:event_btn_crearArcoActionPerformed
 
     private void direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionActionPerformed
