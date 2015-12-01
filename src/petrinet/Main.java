@@ -861,6 +861,8 @@ public class Main extends javax.swing.JFrame {
           comp.setLocation(x, y);
        }
     }
+    
+    
 }
 
 

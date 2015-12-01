@@ -1,5 +1,5 @@
 
-package image;
+package petrinet;
 
 
 public class Plaza {
