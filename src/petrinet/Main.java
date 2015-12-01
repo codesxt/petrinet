@@ -556,7 +556,7 @@ public class Main extends javax.swing.JFrame {
     public void redibujarArcos(){
         for(int i=0; i<arcos.size(); i++){
             Arco a = arcos.get(i);
-            dibujaArco(a.getPx(), a.getPy(), a.getTx(), a.getTy(), a.getDireccion());
+            dibujaArco(a.getPx(), a.getPy(), a.getTx(), a.getTy(), a.getDireccion(), a.getPeso());
         }
     }
     
@@ -643,7 +643,7 @@ public class Main extends javax.swing.JFrame {
         stransicion = (String) transicion_CB.getSelectedItem();
     }//GEN-LAST:event_transicion_CBActionPerformed
 
-    public void dibujaArco(int px, int py, int tx, int ty, int dir){
+    public void dibujaArco(int px, int py, int tx, int ty, int dir, int peso){
         Graphics g = panel.getGraphics();
         //largo de la flecha
         int dist=15, dibuja = 1;
@@ -743,12 +743,12 @@ public class Main extends javax.swing.JFrame {
                 }
                 if (dibuja  == 1 ) {
                     peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
-                    dibujaArco(p1x, p1y, p2x, p2y, 0 );
+                    dibujaArco(p1x, p1y, p2x, p2y, 0 , peso);
                     createArco(splaza, stransicion, 0, peso, p1x, p1y, p2x, p2y);
                 }
             }else{
                 peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
-                dibujaArco(p1x, p1y, p2x, p2y, 0 );
+                dibujaArco(p1x, p1y, p2x, p2y, 0, peso );
                 createArco(splaza, stransicion, 0, peso, p1x, p1y, p2x, p2y);
             }
             
@@ -770,12 +770,12 @@ public class Main extends javax.swing.JFrame {
                 }
                 if (dibuja  == 1 ) {
                     peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
-                    dibujaArco(p1x, p1y, p2x, p2y, 1 );
+                    dibujaArco(p1x, p1y, p2x, p2y, 1, peso );
                     createArco(splaza, stransicion, 1, peso, p1x, p1y, p2x, p2y);
                 }
             }else{
                 peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
-                dibujaArco(p1x, p1y, p2x, p2y, 1 );
+                dibujaArco(p1x, p1y, p2x, p2y, 1, peso );
                 createArco(splaza, stransicion, 1, peso, p1x, p1y, p2x, p2y);
             }
         }      
