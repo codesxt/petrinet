@@ -435,8 +435,7 @@ public class Main extends javax.swing.JFrame {
         label.setSize(label.getPreferredSize());
         label.setOpaque(false);
         label.setLocation(x, y);
-        
-        //label.addMouseListener(myMouseAdapter);
+        //label.adwdMouseListener(myMouseAdapter);
         //label.addMouseMotionListener(myMouseAdapter);
         labelPlaza.add(label);
         panel.add(label);
@@ -448,8 +447,6 @@ public class Main extends javax.swing.JFrame {
             plazas_CB.addItem(tra.getText());
         }
         updateMarcaje();
-        //updateArcos();
-        //redibujarArcos();
     }
     
     public void createTransicion(int x, int y, int transicion) {
@@ -701,7 +698,7 @@ public class Main extends javax.swing.JFrame {
             g.drawLine(px, py, tx, ty);
             g.drawLine((int)p1xf,(int)p1yf, px, py);
             g.drawLine((int)p2xf, (int)p2yf, px, py);
-            g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY);
+            g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY); 
             
             
         } 
