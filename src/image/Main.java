@@ -268,65 +268,74 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_plaza, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_transicion, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(plazas_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(transicion_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(btn_crearArco, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(309, 309, 309))
+                        .addGap(22, 22, 22)
+                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(44, 44, 44)
+                        .addComponent(btn_plaza, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(btn_transicion, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                .addGap(20, 20, 20))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                                .addGap(51, 51, 51)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(transicion_CB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(direccion, 0, 120, Short.MAX_VALUE)
+                            .addComponent(plazas_CB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(22, 22, 22)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_crearArco, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                        .addGap(149, 149, 149))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(355, 355, 355))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_crearArco, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(plazas_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(direccion)
-                                .addComponent(transicion_CB))
-                            .addComponent(btn_transicion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(btn_crearArco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_plaza, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addComponent(plazas_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel2))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_transicion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_plaza, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel1)))))
+                        .addGap(3, 3, 3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(transicion_CB)
+                    .addComponent(jLabel3))
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -336,6 +345,20 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //esta funcion segun mi creterio se debe llamar cada vez que se crea una plaza ..  o una transicion
+    // y se debn llamar en las funciones createPlaza y createTransicion ... 
+    public void updateArcos(){
+        Graphics g = panel.getGraphics();
+        if (arcos.size()>=1) {
+            Iterator<Arco> itrT = arcos.iterator();
+            while(itrT.hasNext()){
+                Arco tra = itrT.next();
+                g.setColor(Color.GREEN);
+                g.drawLine(tra.getPx(),tra.getPy(),tra.getTx(),tra.getTy());
+            }
+        }
+        this.repaint();
+    }
     
     public void createPlaza(int x, int y, int plaza) {
         int imageWidth = 55, imageHeight = 55, marca = 0;
@@ -370,8 +393,11 @@ public class Main extends javax.swing.JFrame {
             JLabel tra = itrT.next();
             plazas_CB.addItem(tra.getText());
         }
-        
         updateMarcaje();
+        if (arcos.size() >= 1) {
+            //updateArcos();
+        }
+        
     }
     
     public void createTransicion(int x, int y, int transicion) {
@@ -392,11 +418,12 @@ public class Main extends javax.swing.JFrame {
         label.setSize(label.getPreferredSize());
         label.setOpaque(false);
         label.setLocation(x, y);
-       //label.addMouseListener(myMouseAdapter);
+        //label.addMouseListener(myMouseAdapter);
         //label.addMouseMotionListener(myMouseAdapter);
        
         labelTran.add(label);
         panel.add(label);
+        
         //Actualiza la lista de transiciones
         transicion_CB.removeAllItems();
         Iterator<JLabel> itrT = labelTran.iterator();
@@ -404,24 +431,23 @@ public class Main extends javax.swing.JFrame {
             JLabel tra = itrT.next();
             transicion_CB.addItem(tra.getText());
         }
+        
+        //updateArcos();
     }
     
-    public void createArco(String plaza, String transicion, int direccion, int peso){
+    public void createArco(String plaza, String transicion, int direccion, int peso, int px1, int py1, int px2, int py2){
         Arco arco = new Arco();
         arco.setPlaza(plaza);
         arco.setTransicion(transicion);
         arco.setDireccion(direccion);
         arco.setPeso(peso);
-        //TODO: Verificar que no se añada un arco si es que ya está en la lista
-        
-        //System.out.println("Añadido arco con:" + plaza + transicion + direccion + peso);
+        arco.setPx(px1);
+        arco.setPy(py1);
+        arco.setTx(px2);
+        arco.setTy(py2);
         arcos.add(arco);
         updateMatrices();
-    }
-    
-    public void updateArcos(){
-        
-    }
+    }       
     
     public void updateMarcaje(){
         String textoMarcaje = "<html>";
@@ -473,7 +499,8 @@ public class Main extends javax.swing.JFrame {
             System.out.print("\n");
         }
     }
-    //función que busca la matriz C (matriz post - matriz pre) ... 
+    
+//función que busca la matriz C (matriz post - matriz pre) ... 
     //hay que ver las excepciones de tal forma que la resta se pueda hacer
     public int[][] matrizC(int post[][], int pre[][]){
         int C[][] = new int[plazas.size()][transiciones.size()];
@@ -501,6 +528,7 @@ public class Main extends javax.swing.JFrame {
             }
 	return result;
     }
+    
     //funcion que encuentra el siguiente marcaje
     public int[] sigMarcaje(int M0[], int B[]){
         int result[] = new int[plazas.size()];
@@ -513,7 +541,7 @@ public class Main extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         
     }//GEN-LAST:event_jToggleButton2ActionPerformed
-// cuando se presiona el btn se queda pegado, entonces hay que despegarlo .. xD
+    // cuando se presiona el btn se queda pegado, entonces hay que despegarlo .. xD
     private void btn_plazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_plazaActionPerformed
         aux=1;
         btn_plaza.setSelected(false);
@@ -527,26 +555,12 @@ public class Main extends javax.swing.JFrame {
                 panel.repaint();
                 aux=0;
                 plaza++;
-                
-                Iterator<JLabel> itre = labelPlaza.iterator();
-                while(itre.hasNext()){
-                        JLabel pla = itre.next();
-                }
-                
-                Iterator<Plaza> itr = plazas.iterator();
-                while(itr.hasNext()){
-                        Plaza pla = itr.next();
-                }
                 break;
             case 2:
                 createTransicion(evt.getX(), evt.getY(), transicion);
                 panel.repaint();
                 aux=0;
                 transicion++;
-                Iterator<Transicion> itrT = transiciones.iterator();
-                while(itrT.hasNext()){
-                        Transicion tra = itrT.next();
-                }
                 break;
             default:
                 break;
@@ -600,7 +614,6 @@ public class Main extends javax.swing.JFrame {
         //Se crea el objeto arco
         int dir = 0;
         if(sdireccion.equals("--->")){
-            
             dir = Arco.PLAZA_A_TRANS;
             p1x = p1x + 30;
             p1y = p1y + 55;
@@ -635,7 +648,7 @@ public class Main extends javax.swing.JFrame {
                     g.drawLine((int)p1xf,(int)p1yf, p2x, p2y);
                     g.drawLine((int)p2xf, (int)p2yf, p2x, p2y);
                     g.drawString(Integer.toString(peso) , (int)pmX + 15, (int)pmY + 15);
-                    createArco(splaza, strancision, dir, peso);
+                    createArco(splaza, strancision, dir, peso,p1x, p1y, p2x, p2y);
                 }
             }else{
                 peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
@@ -644,14 +657,9 @@ public class Main extends javax.swing.JFrame {
                 g.drawLine((int)p1xf,(int)p1yf, p2x, p2y);
                 g.drawLine((int)p2xf, (int)p2yf, p2x, p2y);
                 g.drawString(Integer.toString(peso) , (int)pmX + 15, (int)pmY + 15);
-                createArco(splaza, strancision, dir, peso);
+                createArco(splaza, strancision, dir, peso, p1x, p1y, p2x, p2y);
             }
-            
-            
-            
-            
         }else if(sdireccion.equals("<---")){
-            
             dir = Arco.TRANS_A_PLAZA;
             p1x = p1x + 40;
             p1y = p1y + 55;
@@ -673,6 +681,7 @@ public class Main extends javax.swing.JFrame {
             if (arcos.size() >= 1) {
                 System.out.println(arcos.size());
                 for (int i = 0; i < arcos.size(); i++) {
+                    //si la plaza y la transicion existen y ademas existe en esa direccion ... 
                     if (arcos.get(i).getPlaza().equals(splaza) && arcos.get(i).getTransicion().equals(strancision) && arcos.get(i).getDireccion() == 1) {
                         //envia el mensaje
                         JOptionPane.showMessageDialog(null,"El arco ya Existe"); 
@@ -685,8 +694,8 @@ public class Main extends javax.swing.JFrame {
                     g.drawLine(p1x, p1y, p2x, p2y);
                     g.drawLine((int)p1xf,(int)p1yf, p1x, p1y);
                     g.drawLine((int)p2xf, (int)p2yf, p1x, p1y);
-                    g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY);
-                    createArco(splaza, strancision, dir, peso);
+                    g.drawString(Integer.toString(peso) , (int)pmX + 40, (int)pmY + 40);
+                    createArco(splaza, strancision, dir, peso, p1x, p1y, p2x, p2y);
                 }
             }else{
                 peso = Integer.parseInt( JOptionPane.showInputDialog(null,"Introduzca el Peso del Arco", "Peso", JOptionPane.QUESTION_MESSAGE) );
@@ -694,13 +703,10 @@ public class Main extends javax.swing.JFrame {
                 g.drawLine(p1x, p1y, p2x, p2y);
                 g.drawLine((int)p1xf,(int)p1yf, p1x, p1y);
                 g.drawLine((int)p2xf, (int)p2yf, p1x, p1y);
-                g.drawString(Integer.toString(peso) , (int)pmX, (int)pmY);
-                createArco(splaza, strancision, dir, peso);
+                g.drawString(Integer.toString(peso) , (int)pmX + 40, (int)pmY + 40);
+                createArco(splaza, strancision, dir, peso, p1x, p1y, p2x, p2y);
             }
-            
-            
-        }
-        
+        }        
     }//GEN-LAST:event_btn_crearArcoActionPerformed
 
     private void direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionActionPerformed
