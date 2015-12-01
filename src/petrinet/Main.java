@@ -63,7 +63,7 @@ public class Main extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         trans_sensibilizadas = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        boton_disparo = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         plazas_CB = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -72,7 +72,6 @@ public class Main extends javax.swing.JFrame {
         transicion_CB = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         btn_crearArco = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         btn_plaza = new javax.swing.JToggleButton();
         btn_transicion = new javax.swing.JButton();
@@ -155,10 +154,10 @@ public class Main extends javax.swing.JFrame {
 
         trans_sensibilizadas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
 
-        jButton2.setText("Disparar Transición");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        boton_disparo.setText("Disparar Transición");
+        boton_disparo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                boton_disparoActionPerformed(evt);
             }
         });
 
@@ -176,7 +175,7 @@ public class Main extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(trans_sensibilizadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(boton_disparo)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -186,7 +185,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(trans_sensibilizadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(boton_disparo))
                 .addGap(0, 237, Short.MAX_VALUE))
         );
 
@@ -240,19 +239,10 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         jLabel3.setText("Transiciones");
 
-        btn_crearArco.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         btn_crearArco.setText("Agregar Arco");
         btn_crearArco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_crearArcoActionPerformed(evt);
-            }
-        });
-
-        jButton1.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
-        jButton1.setText("Redibujar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -279,16 +269,15 @@ public class Main extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addComponent(transicion_CB, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(4, 4, 4)
-                .addComponent(btn_crearArco, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(btn_crearArco, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_crearArco, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -299,15 +288,12 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(plazas_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(direccion)
-                            .addComponent(transicion_CB)))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_crearArco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(transicion_CB))))
                 .addGap(24, 24, 24))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btn_plaza.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         btn_plaza.setText("Plaza");
         btn_plaza.setBorder(null);
         btn_plaza.addActionListener(new java.awt.event.ActionListener() {
@@ -316,7 +302,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        btn_transicion.setFont(new java.awt.Font("Cantarell", 0, 18)); // NOI18N
         btn_transicion.setText("Transición");
         btn_transicion.setBorder(null);
         btn_transicion.addActionListener(new java.awt.event.ActionListener() {
@@ -447,6 +432,7 @@ public class Main extends javax.swing.JFrame {
             plazas_CB.addItem(tra.getText());
         }
         updateMarcaje();
+
     }
     
     public void createTransicion(int x, int y, int transicion) {
@@ -499,6 +485,8 @@ public class Main extends javax.swing.JFrame {
         arco.setTy(py2);
         arcos.add(arco);
         updateMatrices();
+        updateTransicionesSensibilizadas();
+        redibujarArcos();
     }       
     
     public void updateMarcaje(){
@@ -550,6 +538,34 @@ public class Main extends javax.swing.JFrame {
             }
             System.out.print("\n");
         }
+    }
+    
+    public void updateTransicionesSensibilizadas(){
+        //System.out.println("Actualizando transiciones sensibilizadas.");
+        trans_sensibilizadas.removeAllItems();
+        for(int i=0; i< transiciones.size(); i++){
+            int sens = 1;
+            for(int j=0;j<plazas.size();j++){
+                if(preMatrix[j][i] > plazas.get(j).getMarca()){
+                    sens = 0;
+                }
+            }
+            if(sens==1){
+                //La transición i está sensibilizada            
+                trans_sensibilizadas.addItem("T"+(i+1));
+            }
+        }
+    }
+    
+    public void dispararTransicion(int index){
+        index = index -1;
+        for(int i = 0; i < plazas.size(); i++){
+            Plaza p = plazas.get(i);
+            int m_p = p.getMarca() - preMatrix[i][index] + postMatrix[i][index];
+            p.setMarca(m_p);
+        }
+        updateMarcaje();
+        updateTransicionesSensibilizadas();
     }
     
     
@@ -791,9 +807,15 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1MousePressed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void boton_disparoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_disparoActionPerformed
+        if(trans_sensibilizadas.getItemCount()>0){
+            String trans = (String) trans_sensibilizadas.getSelectedItem();
+            int ind = Integer.parseInt(trans.substring(1));
+            dispararTransicion(ind);
+        }else{
+            JOptionPane.showMessageDialog(null, "No hay transiciones sensibilizadas."); 
+        }        
+    }//GEN-LAST:event_boton_disparoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         redibujarArcos();
@@ -834,12 +856,11 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_disparo;
     private javax.swing.JButton btn_crearArco;
     private javax.swing.JToggleButton btn_plaza;
     private javax.swing.JButton btn_transicion;
     private javax.swing.JComboBox<String> direccion;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
