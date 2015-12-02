@@ -391,30 +391,7 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //esta funcion segun mi creterio se debe llamar cada vez que se crea una plaza ..  o una transicion
-    // y se debn llamar en las funciones createPlaza y createTransicion ... 
-    public void updateArcos(){
-        System.out.println("Redibujando arcos...");
-        Graphics g = panel.getGraphics();
-        g.setColor(Color.GREEN);
-        for(int i=0; i < arcos.size(); i++){
-            Arco a = arcos.get(i);
-            System.out.println(a.getPx());
-            g.drawLine(a.getPx(), a.getPy(), a.getTx(), a.getTy());
-        }
-        /*
-        if (arcos.size()>=1) {
-            Iterator<Arco> itrT = arcos.iterator();
-            while(itrT.hasNext()){
-                Arco tra = itrT.next();
-                g.setColor(Color.GREEN);
-                g.drawLine(tra.getPx(),tra.getPy(),tra.getTx(),tra.getTy());
-            }
-        }*/
-        //panel.revalidate();
-        panel.repaint();
-    }
-    
+       
     public void createPlaza(int x, int y, int plaza) {
         int imageWidth = 55, imageHeight = 55, marca = 0;
         
@@ -589,44 +566,6 @@ public class Main extends javax.swing.JFrame {
         }
     }
             
-//función que busca la matriz C (matriz post - matriz pre) ... 
-    //hay que ver las excepciones de tal forma que la resta se pueda hacer
-    public int[][] matrizC(int post[][], int pre[][]){
-        int C[][] = new int[plazas.size()][transiciones.size()];
-        for (int i = 0; i < plazas.size(); i++) {
-            for (int j = 0; j < transiciones.size(); j++) {
-                C[i][j] = post[i][j] - pre[i][j];
-            }
-        }
-        return C;
-    }
-    
-    //funcion para sacar el producto entre la matriz C con el vector caracteristico
-    //hay que ver las excepciones de tal forma que la resta se pueda hacer
-    public int[] producto(int A[][], int B[]){
-	int suma = 0;
-	int result[] = new int[plazas.size()];
-            for(int i = 0; i < plazas.size(); i++){
-                for(int j = 0; j < B.length; j++){
-                    suma = 0;
-                    for(int k = 0; k < B.length; k++){
-                        suma += A[i][k] * B[k];
-                    }
-                    result[i] = suma;
-		}
-            }
-	return result;
-    }
-    
-    //funcion que encuentra el siguiente marcaje
-    public int[] sigMarcaje(int M0[], int B[]){
-        int result[] = new int[plazas.size()];
-        for (int i = 0; i < plazas.size(); i++) {
-            result[i] = M0[i] + B[i];
-        }
-        return result;
-    }
-    
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         
     }//GEN-LAST:event_jToggleButton2ActionPerformed
@@ -736,7 +675,8 @@ public class Main extends javax.swing.JFrame {
     
     
     private void btn_crearArcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crearArcoActionPerformed
-        int dibuja = 1;
+        if (plazas.size() > 0 && transiciones.size() > 0) {
+            int dibuja = 1;
         Iterator<JLabel> itrT = labelPlaza.iterator();
         Iterator<JLabel> itrTR = labelTran.iterator();
         while(itrT.hasNext()){
@@ -756,10 +696,10 @@ public class Main extends javax.swing.JFrame {
         
         
         if (direccion.getSelectedItem().equals("--->")) {
-            p1x = p1x + 30;
-            p1y = p1y + 55;
-            p2x = p2x + 10;
-            p2y = p2y + 20;
+            p1x = p1x + 25;
+            p1y = p1y + 40;
+            p2x = p2x + 15;
+            p2y = p2y + 15;
             
             if (arcos.size()>=1) {
                 for (int i = 0; i < arcos.size(); i++) {
@@ -794,9 +734,9 @@ public class Main extends javax.swing.JFrame {
             
             
         }else if(direccion.getSelectedItem().equals("<---")){
-            p1x = p1x + 40;
-            p1y = p1y + 55;
-            p2x = p2x + 25;
+            p1x = p1x + 35;
+            p1y = p1y + 20;
+            p2x = p2x + 35;
             p2y = p2y + 25;
             
             if (arcos.size()>=1) {
@@ -828,7 +768,12 @@ public class Main extends javax.swing.JFrame {
                 dibujaArco(p1x, p1y, p2x, p2y, 1, peso );
                 createArco(splaza, stransicion, 1, peso, p1x, p1y, p2x, p2y);
             }
-        }      
+        }
+        }else{
+            JOptionPane.showMessageDialog(null,"No hay las Pazas o Transiciones suficientes para crear arcos");
+        }
+        
+              
         
     }//GEN-LAST:event_btn_crearArcoActionPerformed
 
